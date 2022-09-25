@@ -8,19 +8,23 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://getbootstrap.com/docs/5.2/assets/css/docs.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"></script>
-    <link rel="stylesheet" href="Sass Styling.css">
+    <link rel="stylesheet" href="/Sass/Sass Styling.css">
 </head>
 <body>
-    <div class="container-fluid">
-    <div class="row" style="position: relative" >
-        <div class="col-6" style="background-color:#191970">
+
+
+
+    <div class="container-fluid"  id="section-one" style="position: relative" >
+
+    <div class="row">
+        <div class="col-lg-6  " style="background-color:#191970">
         <nav class="navbar navbar-expand-lg " >
             <div class="container d-flex justify-content-around pt-2">
-              <a class="navbar-brand" href="#" style="color: white"><span style="float: left"> Instive </span> <span class="text-primary" style="float: left">.</span></a>
-              <!-- <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+              <a class="navbar-brand " href="#" style="color: white"><span class="span-one" style="float: left"> Instive </span> <span class="text-primary span-one" style="float: left">.</span></a>
+              <!-- <button  class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
-              </button> -->
-              <!-- <div class="collapse navbar-collapse" id="navbarNavAltMarkup"> -->
+              </button>
+              <div class="collapse navbar-collapse" id="navbarNavAltMarkup"> -->
                 <div class="navbar-nav ">
                   <a class="nav-link active text-primary pe-4 ps-0 " aria-current="page" href="#"><span class="text-decoration-underline" style="float: left">H</span>
                   <span style="float: left">ome</span>
@@ -56,25 +60,30 @@
     </div>
         </div>
 
-        <!-- SECOND SECTION -->
-        <div class="col-6 nav-link text-secondary justify-content-center pt-2 pb-0 mb-0" style="background-color:#1E90FF ">
+        <!-- SECOND PART -->
+        <div id="section-one-part2" class="col-lg-6 nav-link text-secondary pt-2 pb-0 mb-0" style="background-color:#1E90FF ">
             <nav class="navbar navbar-expand-lg " >
-                <div class="container ms-5 mt-2  justify-content-end ">
+                <div class="container ms-5 mt-2  justify-content-center justify-content-sm-end ">
                 <div class="navbar-nav ">
                    
-            <a href="#" class="nav-link text-light ">login</a>
-            <a href="" class="btn btn-outline-light ms-1 me-5">Get a Quote</a>
+            <a href="#" style="display:inline-block" class="nav-link text-light ">login</a>
+            <a href="#" style="display:inline-block" class="btn btn-outline-light ms-lg-1 me-lg-5">Get a Quote</a>
 
         </div>
     </div>
     </nav>
 
-    <img src="Images/Eren Yeager.png" alt="no pic found" style="height:90%" >
-    
+    <div>
+    <img src="Images/Eren Yeager.png" id="erenn" >
+    <!-- <img src="Images/Eren-Transform.png" id="titan"> -->
+  </div>
+
           </div>
 
+          <!-- First Note -->
+
        <div  class="notes">
-        <h2 style="padding-top: 5px;display: inline-block">10+</h2>
+        <h2 id="first-note-part1">10+</h2>
         <div id="first-note-part2">
         <span style="font-size: 10px">Years</span> 
         <span style="font-size: 10px">Experience</span>
@@ -83,7 +92,11 @@
 
        </div>
 
+       <!-- Second Note -->
+
        <img src="Images/Second Note.jpg" class="notes2">
+
+       <!-- Icon  -->
        <img src="mycollection/png/002-home-insurance.png" class="card-img-top notes3">
 
 
@@ -97,8 +110,15 @@
 
 
 
+
+
+
+
+
+
+
               <!-- SECOND SECTION -->
-<div class="container-fluid">
+<div class="container-fluid" id="section-two">
 
   <div class="container" style="margin:60px 0 120px 0 ;">
   <div class="row mb-5" style="position: relative">
@@ -107,8 +127,8 @@
 
     <div class="col-6"  >
 
-      <div class="container mb-5 eren-box">
-        <img  class="mx-4" src="Images/Section2-Confidence.png" id="second-section-image">
+      <div class="container mb-lg-5 eren-box">
+        <img  class="mx-lg-4" src="Images/Section2-Confidence.png" id="second-section-image">
 
 
 
@@ -133,18 +153,19 @@
     <div class="col-6" >
 
 
+      <!-- SECOND PART -->
 
       <div class="container  display-flex  justify-content-center " id="second-section-part2">
 
           <h6 class="text-primary">About us</h6>
           <h1 class="me-5 pe-4 fw-bold">Save 50% on your Car insurance policy.</h1>
-          <h6 class="me-5" style="color: grey; font-size: 15px;" >
+          <h6 class="me-5"  >
            Insurtas is commited to providing individual employers, health 
           </h6>
-          <h6 class="me-5" style="color: grey; font-size: 15px;" >
+          <h6 class="me-5"  >
             care professionals, producers and others with innovative benefits,
           </h6>
-          <h6 class="me-5" style="color: grey; font-size: 15px;" >
+          <h6 class="me-5" >
            product and services.
           </h6>
           <a href="#" class="btn btn-primary px-5 py-3  mt-4">Contact us</a>
@@ -166,6 +187,8 @@
 
 
 
+
+
               <!-- THIRD SECTION: CARDS -->
 
 
@@ -173,7 +196,7 @@
   
   <div class="container-fluid align-items-center justify-content-center ps-5 pe-5" style="background-color:#191970 ">
     
-    <div class=" row align-items-center justify-content-center" >
+    <div class=" row align-items-center justify-content-center"  >
   <h6 class="text-secondary text-center pt-5">Our Services</h6>
   <h3 class="text-center text-light">We ensure best insurence   </h3>
             <h3  class="text-center text-light">for our clients </h3>
@@ -181,7 +204,7 @@
             <h6 class="text-center" style="color: gray"> better security and also for their better future</h6>
 
              <!-- Home Insurance Card -->
-    <div class="col-4">
+    <div class="col-lg-4">
      
       <div class="card text-center mt-5 " style="background-color:#191970" >
         <img src="mycollection/png/002-home-insurance.png" class="card-img-top icons">
@@ -201,7 +224,7 @@
 
                 <!-- Health Insurance Card -->
 
-    <div class="col-4">
+    <div class="col-lg-4">
      
       <div class="card text-center mt-5 " style="background-color:#191970" >
         <img src="mycollection/png/003-health-insurance.png" class="card-img-top icons">
@@ -220,7 +243,7 @@
 
             <!-- Life Insurance Card -->
     
-    <div class="col-4">
+    <div class="col-lg-4">
      
       <div class="card text-center mt-5 " style="background-color:#191970" >
         <img src="mycollection/png/004-life-insurance.png" class="card-img-top icons">
@@ -248,8 +271,8 @@
              
                 
             <!-- Car Insurance Card -->
-            <div class=" row align-items-center justify-content-center" >
-              <div class="col-4">
+            <div class=" row align-items-center justify-content-center" id="section-three" >
+              <div class="col-lg-4">
      
       <div class="card text-center mt-5 " style="background-color:#191970" >
         <img src="mycollection/png/005-insurance.png" class="card-img-top icons">
@@ -269,7 +292,7 @@
 
                 <!-- Travel Insurance Card -->
 
-    <div class="col-4">
+    <div class="col-lg-4">
      
       <div class="card text-center mt-5 " style="background-color:#191970" >
         <img src="mycollection/png/001-travel-insurance.png" class="card-img-top icons">
@@ -289,7 +312,7 @@
 
               <!-- Agriculture Insurance  Card-->
     
-    <div class="col-4">
+    <div class="col-lg-4">
      
       <div class="card text-center mt-5 " style="background-color:#191970" >
         <img src="mycollection/png/farmhouse.png" class="card-img-top icons">
@@ -346,7 +369,7 @@
                   <!-- SECOND RAW -->
   
                   <div class="container mb-5">
-  <div class="row">
+  <div class="row" id="section-four">
   
     <!-- FIRST PART -->
     <div class="col pt-5 mt-5">
@@ -451,7 +474,7 @@
 
   <div class="container-fluid align-items-center justify-content-center">
 
-    <div class="row" >
+    <div class="row"  >
 
       <h6 class="text-secondary text-center pt-5">Our Agent</h6>
         
@@ -466,14 +489,13 @@
 
         <!-- CARDS -->
 
-        <div class="row align-items-center justify-content-center px-5 ms-5 mt-5">
-
+        <div class="row align-items-center justify-content-center g-5 px-5 ms-5 mt-5" id="section-five">
 
               <!-- FIRST CARD -->
 
-          <div class="col-4">
+          <div class="col-lg-4 col-md-4">
 
-          <div class="card text-center p-0" style="width: 20rem;">
+          <div class="card text-center p-0" >
             <img src="Images/Confidence-1.jpg" class="card-img-top ">
             <div class="card-body">
               <h5 class="card-title">Adam Milne</h5>
@@ -499,9 +521,9 @@
 
           <!-- SECOND CARD -->
 
-          <div class="col-4">
+          <div class="col-lg-4 col-md-4">
 
-            <div class="card text-center p-0" style="width: 20rem;">
+            <div class="card text-center p-0" >
               <img src="Images/Confidence-2.jpg" class="card-img-top ">
               <div class="card-body">
                 <h5 class="card-title">Mitchell Santner</h5>
@@ -526,9 +548,9 @@
 
             <!-- THIRD CARD -->
 
-            <div class="col-4">
+            <div class="col-lg-4 col-md-4">
 
-              <div class="card text-center p-0" style="width: 20rem;">
+              <div class="card text-center p-0" >
                 <img src="Images/Confidence-3.jpg" class="card-img-top ">
                 <div class="card-body">
                   <h5 class="card-title">Sarah Tylor</h5>
@@ -639,7 +661,7 @@
         <h6  style="color: gray">  security and also for their better future</h6>
 
 
-        <div class="col-4">
+        <div class="col-lg-4">
      
           <div class="card mt-5 seventh-Card ">
             <img src="Images/First-Best-Insurance.jpg" class="card-img-top">
@@ -658,7 +680,7 @@
     
                     <!-- First Card -->
     
-                    <div class="col-4">
+                    <div class="col-lg-4">
      
                       <div class="card mt-5 ">
                         <img src="Images/Second-Best-Insurance.jpg" class="card-img-top">
@@ -677,7 +699,7 @@
     
                 <!-- Second Card -->
         
-                <div class="col-4">
+                <div class="col-lg-4">
      
                   <div class="card mt-5">
                     <img src="Images/Beetle.jpg" class="card-img-top">

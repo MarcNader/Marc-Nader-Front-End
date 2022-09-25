@@ -1,0 +1,139 @@
+#section-one { 
+
+    @media (min-width: 768px) and (max-width: 992px) {
+
+        div .container {
+            margin-left: 0;
+            padding: 0;
+            margin-right: 15em;
+        }
+        #erenn {
+            height: 50%;
+            width: 50%;
+             // display: none;
+         }
+     
+             .span-one {
+             font-size: 2em;
+         }
+       
+     
+         .notes {
+             left:60%; 
+             top:75%;
+             height: auto;
+             width: auto;
+         }
+         .notes2{
+             left:60%; 
+             top:85%;
+             width: 40%;
+             width: auto;
+             height: 10%;
+             border-radius: 15%;
+         }
+     
+         #section-one-part2 .btn{
+         // background-color: red;
+         display: inline-block;
+         }
+     
+         .notes3{
+            display: none;
+         
+         }
+     
+
+
+    }
+
+
+}
+
+
+#section-two {
+    
+    @media (min-width: 768px) and (max-width: 992px){
+
+        #second-section-image{
+            height: auto;
+            width: auto;
+            right: 17%;
+            top: -1.7em;
+            bottom: 0;
+            // background-color: red;
+           
+            
+        }
+        #second-section-part2{
+
+            h1{
+                font-size: 35px;
+            }
+            h6{
+                font-size: 14px;
+            }
+            
+        }
+
+        .eren-box{
+            background-color: #fce9e9;
+            width: 100%;
+            height: 66%;
+           margin: 60px;
+        //    margin-left: 150px;
+           margin-top: 30%;
+        }
+        .third-note{
+        
+            left:15%; 
+            top:104%;
+            padding: 5px;
+            border-radius: 2px;
+            width:35%;
+           
+            
+            /* height: 10%; */
+        }
+    }
+}
+
+#section-three{
+
+    @media (min-width: 768px) and (max-width: 992px){
+        #all-services{
+            width:45%;
+        }
+
+    }
+}
+
+#section-four{
+    @media (min-width: 768px) and (max-width: 992px){
+
+        margin-bottom: 5.5em;
+
+        .card-style{
+            width: 90%;
+            border: none;
+        }
+
+        #signing {
+            width:100%;
+            height:100%;
+           
+        }
+
+     
+
+    }
+}
+
+#section-five {
+
+    @media (min-width: 768px) and (max-width: 992px){
+         .card-title{
+            font-size: 18px;
+        }
+    }
+}

@@ -1,3 +1,54 @@
+@import "Tablets";
+#section-one { 
+    
+    @media (max-width: 576px){
+    #erenn {
+       height: 50%;
+       width: 50%;
+        // display: none;
+    }
+
+        .span-one {
+        font-size: 2em;
+    }
+  
+
+    .notes {
+        left:50%; 
+        top:75%;
+        height: auto;
+        width: auto;
+    }
+    .notes2{
+        left:50%; 
+        top:85%;
+        width: 40%;
+        // width: auto;
+        height: 10%;
+        border-radius: 15%;
+    }
+
+    #section-one-part2 .btn{
+    // background-color: red;
+    display: inline-block;
+    }
+
+    .notes3{
+       display: none;
+    
+    }
+
+
+}
+}
+
+
+// #titan {
+//     display: none;
+// }
+
+
+
 .notes {
     position: absolute;
     left:75%; 
@@ -10,6 +61,11 @@
     padding-left: 25px;
     font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
    
+}
+
+#first-note-part1{
+    padding-top: 5px; 
+    display: inline-block;
 }
 #first-note-part2{
     width: 50%; 
@@ -35,8 +91,59 @@
     height:6%;
 
 }
+
+
+
+// SECTION TWO
+
+#section-two {
+    
+    @media (max-width: 576px){
+
+        #second-section-image{
+            height: auto;
+            width: auto;
+            right: 0;
+            bottom: 0;
+           
+            
+        }
+        #second-section-part2{
+
+            h1{
+                font-size: 20px;
+            }
+            h6{
+                font-size: 12px;
+            }
+            
+        }
+
+        .eren-box{
+            background-color: #fce9e9;
+            width: 100%;
+            height: 86.5%;
+           margin: 60px;
+        //    margin-left: 150px;
+           margin-top: 50px;
+        }
+        .third-note{
+        
+            left:15%; 
+            top:108%;
+            padding: 5px;
+            border-radius: 2px;
+            width:35%;
+           
+            
+            /* height: 10%; */
+        }
+    }
+}
+
+
 .eren-box{
-    background-color: #e9f5fc;
+    background-color: #fce9e9;
     width: 60%;
     height: 83%;
    margin: 60px;
@@ -44,13 +151,10 @@
    margin-top: 50px;
 }
 
-
-
 #second-section-image{
     position: absolute;
-    width: 50%;
     height: 130%;
-    right: 39.5%;
+    right: 33.5%;
     bottom:9.5px;
 
 }
@@ -58,6 +162,7 @@
 #second-section-part2{
     margin-left: 22%;
     margin-top: 10%;
+    h6 {color: grey; font-size: 15px;}
 }
 
 
@@ -69,8 +174,6 @@
     background-color: white;
     border-radius: 2px;
     width:15%;
-    
-    /* height: 10%; */
 }
 
 #third-note-container {
@@ -101,6 +204,23 @@ body, html{
     padding: 0;
 }
 
+
+
+
+// THIRD SECTION
+#section-three{
+
+    @media (max-width: 576px){
+        #all-services{
+            width:45%;
+        }
+
+    }
+}
+
+
+
+
 .card-style{
     width: 70%;
     border: none;
@@ -120,6 +240,11 @@ body, html{
     width:15%; 
     height:15%;
     padding-top: 5%;
+
+     @media (max-width: 992px){
+        width:35%; 
+        height:35%;
+    }
 }
 
 
@@ -175,10 +300,16 @@ body, html{
  
 }
 
+
 #read-btn{
     max-width: 20%;
     margin-left: 40%;
     margin-bottom: 100px;
+
+    @media (max-width: 576px){
+        max-width: 25%;
+    }
+
   
 }
 
