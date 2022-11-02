@@ -1,3 +1,22 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  width: 100vw;
+  height: 100vh;
+}
+
+.wrapper {
+  width: 100%;
+  height: 100%;
+}
+
+section {
+  width: 100%;
+}
+
 @media (min-width: 768px) and (max-width: 992px) {
   #section-one div .container {
     margin-left: 0;
@@ -235,7 +254,7 @@
 
 #third-note-image {
   height: 100%;
-  background-color: #FFB804;
+  background-color: #ffb804;
   position: relative;
   left: -6px;
 }
@@ -248,7 +267,8 @@
   padding-right: 0;
 }
 
-body, html {
+body,
+html {
   margin: 0;
   padding: 0;
 }
