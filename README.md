@@ -1,6 +1,6 @@
 DISCLAIMER: 
-This is just an imitation of the current NBE App design and I did it solely for 
-educational purpose. 
+
+This is just an imitation of the current NBE App design and I did it solely for educational purpose. 
 
 Description: 
 
