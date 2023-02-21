@@ -21,6 +21,7 @@ import {useTranslation} from 'react-i18next';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import store from '../../Redux/Store';
 import FingerPrint from '../../Components/FingerPrint/FingerPrint';
+import RNRestart from 'react-native-restart'; 
 import PopUp from '../../Components/ActionSheet/PopUp';
 const HomeScreen = ({navigation}) => {
   const {t, i18n} = useTranslation();
@@ -37,7 +38,7 @@ const HomeScreen = ({navigation}) => {
 
     navigation.navigate('MobileNumber');
   };
-  const [fingerprint, setFingerPrint] = useState(false);
+  const [AsyncValue, setAsyncValue] = useState("");
 
   //  useEffect(()=> {
   //     firebase.firestore().collection("Users").doc(firebase.auth().currentUser.uid).get()
@@ -51,14 +52,46 @@ const HomeScreen = ({navigation}) => {
   //         }
   //     },[])
   //  })
-  const istrue = false;
+  
+  const storedata= async()=>{
+    try {
+      await AsyncStorage.setItem(
+        "Language",
+        i18n.language,
+      )
+    } catch (error) {
+      console.log("Error occured in Async Storage");
+    }
+  }
+
+  const retrievedata= async ()=>{
+    try {
+      const value = await AsyncStorage.getItem("Language");
+      if(value != null){
+        setAsyncValue(value);
+      }
+      else {
+        storedata();
+      }
+    } catch (error) {
+      console.log("We encountered an error in retrieving data from Async and the error is:",error);
+    }
+  }
+
+  retrievedata();
+
   const LanguageHandler = async () => {
-    if (i18n.language == 'ar') {
+    if (AsyncValue == 'ar') {
       i18n.changeLanguage('en');
+      I18nManager.forceRTL(false);
+      console.log("We are inside arabic" , i18n.language, "the value is", AsyncValue);
     } else {
       i18n.changeLanguage('ar');
-      I18nManager.forceRTL(false);
+      I18nManager.forceRTL(true);
     }
+    storedata();
+    RNRestart.restart()
+
   };
   return (
     <ScrollView>
@@ -70,7 +103,7 @@ const HomeScreen = ({navigation}) => {
           <TouchableOpacity
             style={styles.button}
             onPress={() => LanguageHandler()}>
-           {i18n.language == 'en' ? <Text style={{color: '#007236', fontSize: 22, fontWeight: 'bold'}}>
+           {AsyncValue == 'en' ? <Text style={{color: '#007236', fontSize: 22, fontWeight: 'bold'}}>
               Ar
             </Text>:<Text style={{color: '#007236', fontSize: 22, fontWeight: 'bold'}}>
               En

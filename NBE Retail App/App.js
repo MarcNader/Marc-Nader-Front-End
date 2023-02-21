@@ -1,3 +1,4 @@
+import SplashScreen from 'react-native-splash-screen'
 import { NavigationContainer } from '@react-navigation/native';
 import {
   SafeAreaView,
@@ -18,18 +19,10 @@ import SignUp from './android/src/screens/SignUp/SignUp';
 import DrawerNavigator from './android/src/navigation/DrawerNavigator';
 const Stack = createNativeStackNavigator();
 const App= () => {
-  // const [init,setInit]=useState(true);
-  // const [user,setUser]=useState();
-
-  // const onAuthStateChange=(user)=>{
-  //     setUser(user);
-  //     if(init) setInit(false);
-  // } 
-
-  // useEffect(()=>{
-  //   const subscriber= firebase.auth().onAuthStateChanged(onAuthStateChange);
-  //   return subscriber
-  // }, [])
+  
+  useEffect(()=> {
+      SplashScreen.hide();
+  },[])
 
   return (
       <NavigationContainer>
