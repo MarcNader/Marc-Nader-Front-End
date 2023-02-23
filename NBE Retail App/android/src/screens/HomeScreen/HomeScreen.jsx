@@ -5,27 +5,22 @@ import {
   TouchableOpacity,
   Image,
   TextInput,
-  I18nManager,
   ScrollView,
   Alert,
   Pressable,
 } from 'react-native';
-import {Checkbox, Modal} from 'react-native-paper';
+import {Checkbox} from 'react-native-paper';
 import styles from './HomeScreen.styles';
 import {firebase} from '@react-native-firebase/auth';
 import firestore from '@react-native-firebase/firestore';
-import {useEffect, useRef, useState} from 'react';
 import {Credentialsaction} from '../../Redux/Credentials';
 import i18n from '../../l18n';
 import {useTranslation} from 'react-i18next';
-import AsyncStorage from '@react-native-async-storage/async-storage';
 import store from '../../Redux/Store';
-import FingerPrint from '../../Components/FingerPrint/FingerPrint';
-import RNRestart from 'react-native-restart'; 
 import PopUp from '../../Components/ActionSheet/PopUp';
+import LangButton from '../../Components/LangButton/LangButton';
 const HomeScreen = ({navigation}) => {
   const {t, i18n} = useTranslation();
-  // const [modalVisible, setModalVisible] = useState(false);
 
   const loginUser = async (Username, Password) => {
     try {
@@ -38,61 +33,7 @@ const HomeScreen = ({navigation}) => {
 
     navigation.navigate('MobileNumber');
   };
-  const [AsyncValue, setAsyncValue] = useState("");
 
-  //  useEffect(()=> {
-  //     firebase.firestore().collection("Users").doc(firebase.auth().currentUser.uid).get()
-  //     .then((snapshot)=>{
-  //         if(snapshot.exists){
-  //             setUserName(snapshot.data())
-  //             alert("The snapshot username"+ snapshot.data())
-  //         }
-  //         else{
-  //             console.log("user does not exist");
-  //         }
-  //     },[])
-  //  })
-  
-  const storedata= async()=>{
-    try {
-      await AsyncStorage.setItem(
-        "Language",
-        i18n.language,
-      )
-    } catch (error) {
-      console.log("Error occured in Async Storage");
-    }
-  }
-
-  const retrievedata= async ()=>{
-    try {
-      const value = await AsyncStorage.getItem("Language");
-      if(value != null){
-        setAsyncValue(value);
-      }
-      else {
-        storedata();
-      }
-    } catch (error) {
-      console.log("We encountered an error in retrieving data from Async and the error is:",error);
-    }
-  }
-
-  retrievedata();
-
-  const LanguageHandler = async () => {
-    if (AsyncValue == 'ar') {
-      i18n.changeLanguage('en');
-      I18nManager.forceRTL(false);
-      console.log("We are inside arabic" , i18n.language, "the value is", AsyncValue);
-    } else {
-      i18n.changeLanguage('ar');
-      I18nManager.forceRTL(true);
-    }
-    storedata();
-    RNRestart.restart()
-
-  };
   return (
     <ScrollView>
       <ImageBackground
@@ -100,15 +41,7 @@ const HomeScreen = ({navigation}) => {
         resizeMode="stretch"
         style={styles.image}>
         <View style={styles.FirstRow}>
-          <TouchableOpacity
-            style={styles.button}
-            onPress={() => LanguageHandler()}>
-           {AsyncValue == 'en' ? <Text style={{color: '#007236', fontSize: 22, fontWeight: 'bold'}}>
-              Ar
-            </Text>:<Text style={{color: '#007236', fontSize: 22, fontWeight: 'bold'}}>
-              En
-            </Text> }
-          </TouchableOpacity>
+          <LangButton/>
           <Image
             source={require('../../assets/images/BankLogo.png')}
             style={{marginTop: 20, marginRight: 20}}

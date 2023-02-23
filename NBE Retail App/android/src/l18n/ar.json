@@ -49,7 +49,12 @@
       "To another account":"لحساب أخر",
       "Type of transfer":"نوع التحويل",
       "Transfer From":"تحويل من",
-      "Transfer To":"تحويل ألي"
-     
+      "Transfer To":"تحويل ألي",
+      "Account Summary": "ملخص الحساب",
+      "FingerPrint for NBE Mobile": "بصمه تطبيق البنك الاهلي للجوال",
+      "Login with your fingerprint": "تسجيل دخول بالبصمه",
+      "Touch the fingerprint sensor":"أضغط علي مستشعر البصمه",
+      "Cancel":"الغاء",
+      "Customer Service":"خدمه عملاء"
       
   }

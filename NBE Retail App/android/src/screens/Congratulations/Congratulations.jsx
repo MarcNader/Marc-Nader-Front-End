@@ -15,7 +15,7 @@ const Congratulations = ({navigation}) => {
   return (
     <ImageBackground
       source={require('../../assets/images/Congratulations.png')}
-      resizeMode="cover"
+      resizeMode="stretch"
       style={styles.image}>
       <View style={styles.container}>
         <View style={styles.wrapper}>

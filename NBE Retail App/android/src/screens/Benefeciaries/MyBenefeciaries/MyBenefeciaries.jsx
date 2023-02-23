@@ -8,6 +8,7 @@ import { View,Text,
 import SortedBenef from "../../../Components/SortedBenef/sortedbenef"
 import styles from "./MyBenefeciaries.styles"
 import { useTranslation } from 'react-i18next';
+import Header from "../../../Components/Header/Header";
 
 const MyBenefeciaries= ({navigation})=> {
     const {t, i18n}= useTranslation();
@@ -105,31 +106,8 @@ const MyBenefeciaries= ({navigation})=> {
         <View style={styles.container}>
 
            <ScrollView>
-             
-            <View style={styles.FirstRow}>
-
-            <View style={styles.FirstRowPart1}>
-                    <Image source={require("../../../assets/images/DropList.png")} style={{backgroundColor:'black'}}/>
-                    <TouchableOpacity  onPress={()=>navigation.navigate('AddBenef')}>
-                        <Image source={require('../../../assets/images/Meshaly.png')} 
-                        style={{marginStart:5, borderRadius:10}} 
-                       />
-                    </TouchableOpacity>
-                    
-
-                    <View style={styles.username} >
-                            <Text style={{color:'gray'}}>{t("Good morning")}</Text>
-                            <Text style={{color:'black', fontWeight:'bold'}}>{t("Marc")}</Text>
-                    </View>
-            </View>
-
-
-            <View style={styles.FirstRowPart2}>
-            <TouchableOpacity style={styles.Notification}>
-                    <Image source={require('../../../assets/images/Notification.png')}/>
-            </TouchableOpacity>
-            </View>
-            </View>
+            
+            <Header navigation={navigation}/>
             
             <View style={styles.SecondRow}>
                     <Text style={{color:'black', fontSize:20, fontWeight:'bold'}}>{t("Benefeciaries")}</Text>

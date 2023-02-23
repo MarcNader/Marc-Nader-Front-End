@@ -194,7 +194,11 @@ const ProfilePage= ({navigation})=> {
             <View style={styles.FourthRow}>
                 <View style={{flexDirection:'row', justifyContent:'space-between', alignItems:'center', marginBottom:5}}>
                     <Text style={{color:"white", fontSize:20, fontWeight:'bold'}}>{t("Send Money")}</Text>
-                    <Text style={{color:'gray'}}>{t("View All")}</Text>
+                    
+                    <TouchableOpacity>
+                    <Text style={{color:'gray'}} onPress={()=>navigation.navigate('MyBenefeciaries')}>{t("View All")}</Text>
+
+                    </TouchableOpacity>
                 </View>
                 <FlatList
                 data={Data}
