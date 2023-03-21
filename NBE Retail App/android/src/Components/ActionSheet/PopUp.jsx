@@ -11,11 +11,10 @@ const PopUp = ({CustomStyle}) => {
     
   return (
     <View>
-       <TouchableOpacity style={{width:"14%"}} onPress={()=>actionSheetRef.current?.show()}>
+       <TouchableOpacity onPress={()=>actionSheetRef.current?.show()}>
                 <Image style={CustomStyle} source={require("../../assets/images/fingerprint.png")}/>
             </TouchableOpacity>
-         <ActionSheet ref={actionSheetRef} containerStyle={styles.container} 
-         >
+         <ActionSheet ref={actionSheetRef} containerStyle={styles.container}>
 
 
       <Text style={styles.header1}>{t('FingerPrint for NBE Mobile')}</Text>

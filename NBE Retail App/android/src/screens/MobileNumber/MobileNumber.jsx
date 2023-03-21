@@ -47,7 +47,7 @@ import { useTranslation } from 'react-i18next';
       <View style={styles.wrapper}>
   
       <View style={styles.FirstRow}>
-      <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('Home')}>
+      <TouchableOpacity style={styles.button} onPress={() => navigation.goBack()}>
           <Image source={require("../../assets/images/Back.png")}/>
       </TouchableOpacity>
            <Image source={require("../../assets/images/BankLogo2.png")} style={{marginTop:20, marginRight:20}}/>

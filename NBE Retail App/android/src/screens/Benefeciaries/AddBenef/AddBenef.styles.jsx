@@ -1,11 +1,13 @@
-import { StyleSheet } from "react-native";
-
+import { StyleSheet, Dimensions } from "react-native";
+const deviceHeight =  Dimensions.get("window").height;
+const deviceWidth =  Dimensions.get("window").width;
 export default StyleSheet.create({
     container:{
         flex:1,
         backgroundColor:"#F1F3FB",
-        paddingTop:20,
-        paddingHorizontal:20,
+        paddingTop:deviceHeight <900 ? 20 : 30,
+        // paddingHorizontal:20,
+        paddingHorizontal:(deviceWidth*5/100),
       },
 
     //First Row

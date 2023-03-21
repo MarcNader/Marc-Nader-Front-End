@@ -116,12 +116,12 @@ const TransactionHistory=({navigation})=> {
                 <Text style={{fontSize:18, fontWeight:'bold', color:'black'}}>{t("Ahmad Meshaly")}</Text>
 
                 <View style={styles.BenefCard}>
-                <Image source={require("../Images/Phone.png")} style={{marginEnd:5}}/>
+                <Image source={require("../../../assets/images/Phone.png")} style={{marginEnd:5}}/>
                 <Text>01223431361</Text>
                 </View>
                 
                 <View style={styles.BenefCard}>
-                <Image source={require("../Images/Dollar.png")}  style={{marginEnd:5}}/>
+                <Image source={require("../../../assets/images/Dollar.png")}  style={{marginEnd:5}}/>
                 <Text>245,567,789.95$</Text>
                 </View>
              </View>

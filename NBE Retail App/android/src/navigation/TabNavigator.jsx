@@ -5,8 +5,8 @@ import ProfilePage from '../screens/ProfilePage/ProfilePage';
 import home from '../assets/images/Home.png';
 import Transfer from '../assets/images/Transfer.png';
 import Group from '../assets/images/Group.png';
-import ATMLogo from "../assets/images/ATM.png";
-import AirPayLogo from "../assets/images/AirPay.png"
+import ATMLogo from '../assets/images/ATM.png';
+import AirPayLogo from '../assets/images/AirPay.png';
 import AirPay from '../screens/AirPay/AirPay';
 import ATM from '../screens/ATM/ATM';
 import Transaction from '../screens/Transactions/Transaction';
@@ -16,7 +16,7 @@ const Tab = createBottomTabNavigator();
 const TabNavigator = () => {
   return (
     <Tab.Navigator
-      initialRouteName="Home"
+      initialRouteName="TabRoute"
       screenOptions={({route}) => ({
         headerShown: false,
 
@@ -28,13 +28,11 @@ const TabNavigator = () => {
             iconName = Transfer;
           } else if (route.name === 'Benefeciaries') {
             iconName = Group;
-          }    
-          else if (route.name === 'ATM') {
+          } else if (route.name === 'ATM') {
             iconName = ATMLogo;
-          }   
-          else if (route.name === 'AirPay') {
+          } else if (route.name === 'AirPay') {
             iconName = AirPayLogo;
-          }   
+          }
           return <Image source={iconName} />;
         },
         tabBarStyle: {backgroundColor: '#151A21', height: 70},
@@ -43,18 +41,14 @@ const TabNavigator = () => {
         tabBarActiveTintColor: 'white',
         tabBarInactiveBackgroundColor: '#202933',
         tabBarActiveBackgroundColor: '#007236',
-        tabBarHideOnKeyboard:true,
+        tabBarHideOnKeyboard: true,
       })}>
       <Tab.Screen name="Home" component={ProfilePage} />
       <Tab.Screen name="Transfer" component={Transaction} />
       <Tab.Screen name="Benefeciaries" component={Benefeciaries} />
       <Tab.Screen name="ATM" component={ATM} />
       <Tab.Screen name="AirPay" component={AirPay} />
-     
-
     </Tab.Navigator>
-
-
   );
 };
 

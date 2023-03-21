@@ -10,7 +10,7 @@ const CustomDrawer = (props) => {
                 <LangButton/>
              </View>
 
-          <View style={{justifyContent:'space-between', flex:1, flexDirection:'column', backgroundColor:'red'}}>
+          <View style={{justifyContent:'space-between', flex:1, flexDirection:'column'}}>
 
              <View style={styles.ItemsList}>
             <DrawerItemList {...props}/>
