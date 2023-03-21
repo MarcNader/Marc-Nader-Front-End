@@ -1,4 +1,11 @@
-import {View, Text, TouchableOpacity, Button, Image} from 'react-native';
+import {
+  View,
+  Text,
+  TouchableOpacity,
+  Button,
+  Image,
+  Touchable,
+} from 'react-native';
 import Modal from 'react-native-modal';
 import {fetchData} from '../../Util/http';
 import styles from './ModalPop.style';
@@ -7,22 +14,26 @@ const ModalPop = ({isVisible}) => {
     <View>
       <Modal isVisible={isVisible}>
         <View style={styles.Container}>
-          {/* <Text style={{fontSize: 20, fontWeight: 'bold'}}>
-            I am the modal content!
-          </Text> */}
+          <View style={styles.HeaderContainer}>
+            <Image
+              source={require('../../assets/images/MissionComplete.png')}
+            />
 
-          <Image source={require('../../assets/images/MissionComplete.png')} />
+            <Text style={styles.Header}>Mission Complete</Text>
+            <Text style={styles.SubHeader}>
+              Transfer to Jsmine Robert was successful
+            </Text>
+          </View>
 
-          <Text style={styles.Header}>Mission Complete</Text>
-          <Text style={styles.SubHeader}>
-            Transfer to Jsmine Robert was successful
-          </Text>
-          <Button
-            title="Hide Modal"
+          <TouchableOpacity
+            style={styles.CustomFinish}
             onPress={() => {
               isVisible(false);
-            }}
-          />
+            }}>
+            <Text style={{textAlign: 'center', color: 'white', fontSize: 16}}>
+              Finish
+            </Text>
+          </TouchableOpacity>
         </View>
       </Modal>
     </View>
