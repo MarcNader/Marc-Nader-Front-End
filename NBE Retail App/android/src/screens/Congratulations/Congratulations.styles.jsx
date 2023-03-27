@@ -1,17 +1,22 @@
 import {StyleSheet} from 'react-native';
+
 export default StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#F1F3FB',
     justifyContent: 'space-between',
     marginHorizontal: 20,
+  },
+  image: {
+    flex: 1,
+    backgroundColor: '#007236',
+    alignItems: 'baseline',
   },
   FirstRow: {
     justifyContent: 'space-between',
     flexDirection: 'row',
   },
   BackButton: {
-    backgroundColor: '#007236',
+    backgroundColor: 'orange',
     padding: 8,
     width: 40,
     borderRadius: 10,
@@ -20,19 +25,9 @@ export default StyleSheet.create({
     justifyContent: 'center',
   },
 
-  header: {
-    color: 'black',
-    fontSize: 20,
-    fontWeight: 'bold',
-  },
-
-  OTPContainer: {
-    justifyContent: 'center',
-    alignItems: 'center',
-    flexDirection: 'row',
-    marginTop: 0,
-  },
-
+  Header: {marginTop: 15},
+  HeaderTitle: {color: 'white', fontSize: 30, fontWeight: 'bold'},
+  HeaderSubTitle: {color: 'white', fontSize: 16},
   borderStyleBase: {
     width: 30,
     height: 45,

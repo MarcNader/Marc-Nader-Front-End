@@ -9,14 +9,16 @@ import {
   ScrollView,
   Alert,
 } from 'react-native';
-import {Checkbox} from 'react-native-paper';
 import styles from './SignUp.styles';
 import {firebase} from '@react-native-firebase/auth';
 import firestore from '@react-native-firebase/firestore';
 import {useEffect, useState} from 'react';
-import {FirstSliceaction} from '../../Redux/FirstSlice';
 import i18n from '../../l18n';
 import {useTranslation} from 'react-i18next';
+import CustomLogoField from '../../Components/CustomLogoField/CustomLogoField';
+import atsign from '../../assets/images/atsign.png';
+import Lock from '../../assets/images/Lock.png';
+import LangButton from '../../Components/LangButton/LangButton';
 const SignUp = ({navigation}) => {
   const [Username, setUserName] = useState('');
   const [Password, setPassword] = useState('');
@@ -42,11 +44,6 @@ const SignUp = ({navigation}) => {
     navigation.navigate('MobileNumber');
   };
 
-  const istrue = false;
-  const LanguageHandler = async () => {
-    i18n.changeLanguage('ar');
-    I18nManager.forceRTL(false);
-  };
   return (
     <ImageBackground
       source={require('../../assets/images/Home-Background.png')}
@@ -54,13 +51,7 @@ const SignUp = ({navigation}) => {
       style={styles.image}>
       <ScrollView>
         <View style={styles.FirstRow}>
-          <TouchableOpacity
-            style={styles.button}
-            onPress={() => LanguageHandler()}>
-            <Text style={{color: '#007236', fontSize: 22, fontWeight: 'bold'}}>
-              Ar
-            </Text>
-          </TouchableOpacity>
+          <LangButton />
           <Image
             source={require('../../assets/images/BankLogo.png')}
             style={{marginTop: 20, marginRight: 20}}
@@ -72,39 +63,18 @@ const SignUp = ({navigation}) => {
           <Text style={styles.SecondRow}>{t('The National Bank')}</Text>
           <Text style={styles.SecondRow}>{t('of Egypt')}</Text>
 
-          <View style={styles.CustomUsername}>
-            <Image
-              source={require('../../assets/images/atsign.png')}
-              style={{marginTop: 13, marginLeft: 10}}
-            />
-            <View style={{flexDirection: 'column'}}>
-              <Text style={{marginLeft: 15, color: 'white'}}>
-                {t('Username')}
-              </Text>
-              <TextInput
-                style={{marginLeft: 15, padding: 0, color: 'white'}}
-                onChangeText={username => setUserName(username)}
-              />
-            </View>
-          </View>
+          <CustomLogoField
+            setField={setUserName}
+            Logo={atsign}
+            Input={'Username'}
+          />
 
-          <View style={styles.CustomPassword}>
-            <Image
-              source={require('../../assets/images/password.png')}
-              style={{marginTop: 13, marginLeft: 10}}
-            />
-            <View style={{flexDirection: 'column'}}>
-              <Text style={{marginLeft: 15, color: 'green'}}>
-                {t('Password')}
-              </Text>
-              <TextInput
-                onChangeText={password => setPassword(password)}
-                secureTextEntry={true}
-                style={{marginLeft: 15, padding: 0, color: 'green'}}
-              />
-            </View>
-          </View>
-
+          <CustomLogoField
+            setField={setPassword}
+            Logo={Lock}
+            Input={'Password'}
+            Password={true}
+          />
           <View
             style={{
               flexDirection: 'row',

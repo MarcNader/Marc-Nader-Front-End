@@ -9,7 +9,7 @@ import {
   Alert,
   Pressable,
 } from 'react-native';
-import {Checkbox} from 'react-native-paper';
+import CheckBox from '@react-native-community/checkbox';
 import styles from './HomeScreen.styles';
 import {firebase} from '@react-native-firebase/auth';
 import firestore from '@react-native-firebase/firestore';
@@ -25,11 +25,15 @@ import store from '../../Redux/Store';
 import PopUp from '../../Components/ActionSheet/PopUp';
 import LangButton from '../../Components/LangButton/LangButton';
 import {useDispatch, useSelector} from 'react-redux';
+import CustomLogoField from '../../Components/CustomLogoField/CustomLogoField';
+import {useState} from 'react';
+import atsign from '../../assets/images/atsign.png';
+import Lock from '../../assets/images/Lock.png';
 const HomeScreen = ({navigation}) => {
   const {t, i18n} = useTranslation();
-  const username = useSelector(state => state.Credentials.Username);
-  const password = useSelector(state => state.Credentials.Password);
-
+  const [username, setUserName] = useState('');
+  const [password, setPassword] = useState('');
+  const [toggleCheckBox, setToggleCheckBox] = useState(false);
   const dispatch = useDispatch();
   const loginUser = async (Username, Password) => {
     let user = '';
@@ -66,48 +70,29 @@ const HomeScreen = ({navigation}) => {
           <Text style={styles.SecondRow}>{t('The National Bank')}</Text>
           <Text style={styles.SecondRow}>{t('of Egypt')}</Text>
 
-          <View style={styles.CustomUsername}>
-            <Image
-              source={require('../../assets/images/atsign.png')}
-              style={{marginTop: 13, marginLeft: 10}}
-            />
-            <View style={{flexDirection: 'column'}}>
-              <Text style={{marginLeft: 15, color: 'white'}}>
-                {t('Username')}
-              </Text>
-              <TextInput
-                style={{marginLeft: 15, padding: 0, color: 'white'}}
-                onChangeText={username =>
-                  // store.dispatch(Credentialsaction.username(username))
-                  dispatch(setUsername(username))
-                }
-              />
-            </View>
-          </View>
-
-          <View style={styles.CustomPassword}>
-            <Image
-              source={require('../../assets/images/password.png')}
-              style={{marginTop: 13, marginLeft: 10}}
-            />
-            <View style={{flexDirection: 'column'}}>
-              <Text style={{marginLeft: 15, color: 'green'}}>
-                {t('Password')}
-              </Text>
-              <TextInput
-                onChangeText={password =>
-                  // store.dispatch(Credentialsaction.password(password))
-                  dispatch(setPassword(password))
-                }
-                secureTextEntry={true}
-                style={{marginLeft: 15, padding: 0, color: 'green'}}
-              />
-            </View>
-          </View>
+          <CustomLogoField
+            setField={setUserName}
+            Logo={atsign}
+            Input={'Username'}
+          />
+          <CustomLogoField
+            setField={setPassword}
+            Logo={Lock}
+            Input={'Password'}
+            Password={true}
+          />
 
           <View style={styles.CheckBoxSection}>
             <View style={{alignItems: 'center', flexDirection: 'row'}}>
-              <Checkbox status="unchecked" color="red" />
+              <CheckBox
+                disabled={false}
+                value={toggleCheckBox}
+                onValueChange={newValue => setToggleCheckBox(newValue)}
+                tintColors={{
+                  true: 'white',
+                  false: 'white',
+                }}
+              />
               <Text style={{color: 'white', marginLeft: 5}}>
                 {t('Check me')}
               </Text>

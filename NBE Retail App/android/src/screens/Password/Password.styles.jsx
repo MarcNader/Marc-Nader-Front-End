@@ -1,42 +1,34 @@
-import { StyleSheet } from "react-native"
+import {StyleSheet} from 'react-native';
 export default StyleSheet.create({
-    container:{
-      flex:1,
-      backgroundColor:"#F1F3FB",
-      justifyContent:'space-between',
-    },
+  container: {
+    flex: 1,
+    backgroundColor: '#F1F3FB',
+    justifyContent: 'space-between',
+    marginHorizontal: 20,
+  },
   FirstRow: {
-    justifyContent: "space-between",
-    flexDirection:"row"
+    justifyContent: 'space-between',
+    flexDirection: 'row',
   },
-  button: {
-    backgroundColor: "#007236",
+  HeaderContainer: {
+    marginTop: 15,
+    flexDirection: 'column',
+  },
+  HeaderTitle: {
+    fontSize: 20,
+    fontWeight: 'bold',
+  },
+  SubHeaderTitle: {
+    color: 'gray',
+    fontSize: 16,
+  },
+  BackButton: {
+    backgroundColor: '#007236',
     padding: 8,
-    width:40,
+    width: 40,
     borderRadius: 10,
-    marginTop:20,
-    marginStart:20,
-    alignItems:'center',
-    justifyContent:'center',
+    marginTop: 20,
+    alignItems: 'center',
+    justifyContent: 'center',
   },
-  
-  CustomPassword: {
-    borderWidth:2,
-    padding:6,
-    flex:1,
-    marginEnd:20,
-    borderColor:"#007236",
-    borderRadius:10,
-    marginTop:25,
-    backgroundColor:"white",
-    flexDirection:"row",
-},
-  CustomSubmit: {
-    marginHorizontal:20,
-    marginBottom:20, 
-    paddingVertical:12, 
-    borderRadius:10, 
-    backgroundColor:'#007236',
-    textAlign:"center",
-  }
-  })
+});
