@@ -15,7 +15,7 @@ import {useCallback, useEffect, useState} from 'react';
 import styles from './ProfilePage.styles';
 import {useTranslation} from 'react-i18next';
 import Header from '../../Components/Header/Header';
-import Person from '../../Components/Person/Person';
+import Benefeciary from '../../Components/Benefeciary/Benefeciary';
 import PopUp from '../../Components/ActionSheet/PopUp';
 import ModalPop from '../../Components/PopUp/ModalPop';
 import {fetchBenefData} from '../../Util/http';
@@ -33,7 +33,7 @@ const ProfilePage = ({navigation}) => {
   const [fetchedData, setFetchedData] = useState([]);
 
   const userId = useSelector(state => state.Credentials.UserId);
-  const Benefeciaries = useSelector(state => state.UsersData.Users);
+  // const Benefeciaries = useSelector(state => state.UsersData.Users);
   const dispatch = useDispatch();
 
   const getUsers = async refresh => {
@@ -258,7 +258,7 @@ const ProfilePage = ({navigation}) => {
           {fetchedData.length > 0 ? (
             <FlatList
               data={fetchedData}
-              renderItem={Person}
+              renderItem={Benefeciary}
               horizontal={true}
             />
           ) : (

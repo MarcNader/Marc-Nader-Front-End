@@ -196,7 +196,9 @@ const AddBenef = ({navigation}) => {
                   color: 'black',
                   marginStart: 15,
                   marginTop: 10,
-                }}></TextInput>
+                }}
+                keyboardType="phone-pad"
+              />
               {touched.phoneNumber && errors.phoneNumber && (
                 <Text style={styles.ErrorMsg}>{errors.phoneNumber}</Text>
               )}

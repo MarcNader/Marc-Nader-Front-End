@@ -6,7 +6,6 @@ import {
   Image,
   ScrollView,
   FlatList,
-  RefreshControl,
 } from 'react-native';
 import SortedBenef from '../../../Components/SortedBenef/sortedbenef';
 import styles from './MyBenefeciaries.styles';
@@ -14,9 +13,7 @@ import {useTranslation} from 'react-i18next';
 import Header from '../../../Components/Header/Header';
 import NoBenef from '../../../Components/NoBenef/NoBenef';
 import PersonDetails from '../../../Components/PersonDetails/PersonDetails';
-import {fetchBenefData, fetchData} from '../../../Util/http';
 import {ActivityIndicator} from 'react-native';
-import store from '../../../Redux/Store';
 import {useSelector} from 'react-redux';
 const MyBenefeciaries = ({navigation}) => {
   const {t, i18n} = useTranslation();
@@ -48,9 +45,14 @@ const MyBenefeciaries = ({navigation}) => {
 
         {Benefeciaries.length > 0 ? (
           !sort ? (
-            <FlatList data={Benefeciaries} renderItem={PersonDetails} />
+            <FlatList
+              data={Benefeciaries}
+              renderItem={({item}) => (
+                <PersonDetails item={item} navigation={navigation} />
+              )}
+            />
           ) : (
-            <SortedBenef BenefData={Benefeciaries} />
+            <SortedBenef BenefData={Benefeciaries} navigation={navigation} />
           )
         ) : (
           <>
