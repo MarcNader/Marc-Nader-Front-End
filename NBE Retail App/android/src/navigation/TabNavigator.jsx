@@ -10,10 +10,13 @@ import AirPayLogo from '../assets/images/AirPay.png';
 import AirPay from '../screens/AirPay/AirPay';
 import ATM from '../screens/ATM/ATM';
 import Transaction from '../screens/Transactions/Transaction';
+import {useTheme} from '@react-navigation/native';
 
 const Tab = createBottomTabNavigator();
 
 const TabNavigator = () => {
+  const {colors} = useTheme();
+
   return (
     <Tab.Navigator
       initialRouteName="TabRoute"
@@ -35,11 +38,11 @@ const TabNavigator = () => {
           }
           return <Image source={iconName} />;
         },
-        tabBarStyle: {backgroundColor: '#151A21', height: 70},
+        tabBarStyle: {backgroundColor: colors.primary, height: 70},
         tabBarItemStyle: {borderRadius: 10, margin: 5},
         tabBarLabelStyle: {marginBottom: 5, fontSize: 10},
         tabBarActiveTintColor: 'white',
-        tabBarInactiveBackgroundColor: '#202933',
+        tabBarInactiveBackgroundColor: colors.card,
         tabBarActiveBackgroundColor: '#007236',
         tabBarHideOnKeyboard: true,
       })}>

@@ -1,9 +1,13 @@
 import {StyleSheet} from 'react-native';
 export default StyleSheet.create({
   container: {
-    // paddingHorizontal: 20,
     flex: 1,
     marginHorizontal: 5,
+  },
+  ItemsContainer: {
+    justifyContent: 'space-between',
+    flex: 1,
+    flexDirection: 'column',
   },
   FirstRow: {
     justifyContent: 'space-between',
@@ -12,19 +16,15 @@ export default StyleSheet.create({
     marginBottom: 30,
   },
 
-  LogOutContainer: {
-    flexDirection: 'row',
-    alignItems: 'center',
-  },
-
   LogOutText: {
     fontSize: 18,
     color: '#EB001B',
     marginStart: 12,
+    marginLeft: -20,
+    fontSize: 18,
   },
 
   Footer: {
     marginBottom: 30,
-    marginHorizontal: 20,
   },
 });

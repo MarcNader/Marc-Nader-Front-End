@@ -19,27 +19,25 @@ import Benefeciary from '../../Components/Benefeciary/Benefeciary';
 import PopUp from '../../Components/ActionSheet/PopUp';
 import ModalPop from '../../Components/PopUp/ModalPop';
 import {fetchBenefData} from '../../Util/http';
-import store from '../../Redux/Store';
 import {ActivityIndicator} from 'react-native';
-import {setUsers, UsersDataaction} from '../../Redux/UserData';
-import {useFocusEffect} from '@react-navigation/native';
+import {setUsers} from '../../Redux/UserData';
 import {useDispatch, useSelector} from 'react-redux';
-import Credentials from '../../Redux/Credentials';
+
+import {useTheme} from '@react-navigation/native';
 const ProfilePage = ({navigation}) => {
   const {t, i18n} = useTranslation();
   const [balance, setBalance] = useState(false);
   const [Visible, setVisible] = useState(false);
   const [refreshing, setRefreshing] = useState(false);
   const [fetchedData, setFetchedData] = useState([]);
-
+  const hamada = 'hamada';
   const userId = useSelector(state => state.Credentials.UserId);
-  // const Benefeciaries = useSelector(state => state.UsersData.Users);
   const dispatch = useDispatch();
+
+  const {colors} = useTheme();
 
   const getUsers = async refresh => {
     const users = await fetchBenefData(userId);
-
-    console.log('This is the RESPONSE ON USE EFFECT:', users);
 
     setFetchedData(users);
 
@@ -49,8 +47,9 @@ const ProfilePage = ({navigation}) => {
       setRefreshing(false);
     }
   };
-
   useEffect(() => {
+    console.log('We are in UseEffect');
+    // const unsubscribe= navigation.addListener("beforeRemove",)
     getUsers();
   }, []);
 
@@ -142,7 +141,7 @@ const ProfilePage = ({navigation}) => {
   };
 
   return (
-    <View style={styles.container}>
+    <View style={[styles.container, {backgroundColor: colors.background}]}>
       <ScrollView
         contentContainerStyle={{flex: 1}}
         refreshControl={
@@ -182,15 +181,9 @@ const ProfilePage = ({navigation}) => {
           onPress={() => {
             setVisible(true);
           }}>
-          <Text>Press here to show modal</Text>
-          <Text>Press here to show modal</Text>
-          <Text>Press here to show modal</Text>
-          <Text>Press here to show modal</Text>
-          <Text>Press here to show modal</Text>
-          <Text>Press here to show modal</Text>
-          <Text>Press here to show modal</Text>
-          <Text>Press here to show modal</Text>
-          <Text>Press here to show modal</Text>
+          <Text style={{color: colors.text}}>Press here to show modal</Text>
+          <Text style={{color: colors.text}}>Press here to show modal</Text>
+          <Text style={{color: colors.text}}>Press here to show modal</Text>
         </TouchableOpacity>
 
         {Visible && <ModalPop isVisible={value => setVisible(value)} />}
@@ -242,7 +235,12 @@ const ProfilePage = ({navigation}) => {
               alignItems: 'center',
               marginBottom: 5,
             }}>
-            <Text style={{color: 'white', fontSize: 20, fontWeight: 'bold'}}>
+            <Text
+              style={{
+                color: 'white',
+                fontSize: 20,
+                fontWeight: 'bold',
+              }}>
               {t('Send Money')}
             </Text>
 
@@ -258,8 +256,12 @@ const ProfilePage = ({navigation}) => {
           {fetchedData.length > 0 ? (
             <FlatList
               data={fetchedData}
-              renderItem={Benefeciary}
+              // renderItem={Benefeciary}
+              renderItem={({item}) => (
+                <Benefeciary item={item} colors={colors} />
+              )}
               horizontal={true}
+              extraData={colors}
             />
           ) : (
             <ActivityIndicator

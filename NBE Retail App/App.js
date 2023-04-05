@@ -1,5 +1,10 @@
 import SplashScreen from 'react-native-splash-screen';
-import {NavigationContainer} from '@react-navigation/native';
+import {
+  NavigationContainer,
+  DarkTheme,
+  DefaultTheme,
+} from '@react-navigation/native';
+import {useColorScheme} from 'react-native';
 import {SafeAreaView, StyleSheet, Text, View} from 'react-native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import OTP from './android/src/screens/OTP/OTP';
@@ -14,15 +19,42 @@ import SignUp from './android/src/screens/SignUp/SignUp';
 import DrawerNavigator from './android/src/navigation/DrawerNavigator';
 import store from './android/src/Redux/Store';
 import {Provider} from 'react-redux';
+
 const Stack = createNativeStackNavigator();
 const App = () => {
   useEffect(() => {
     SplashScreen.hide();
   }, []);
 
+  const scheme = useColorScheme();
+  const CustomDark = {
+    dark: true,
+    colors: {
+      primary: ' rgba(255, 255, 255, 0.05)',
+      // secondary: ' rgba(255, 255, 255, 0.05)',
+      background: 'rgba(31, 41, 51, 1)',
+      card: 'rgb(255, 255, 255)',
+      text: 'rgb(28, 28, 30)',
+      border: 'rgb(199, 199, 204)',
+      notification: 'rgb(255, 69, 58)',
+    },
+  };
+
+  const CustomDefault = {
+    dark: false,
+    colors: {
+      primary: 'white',
+      background: 'rgba(241, 243, 251, 1)',
+      card: 'rgba(241, 243, 251, 1)',
+      text: 'rgb(28, 28, 30)',
+      border: 'rgb(199, 199, 204)',
+      notification: 'rgb(255, 69, 58)',
+    },
+  };
   return (
     <Provider store={store}>
-      <NavigationContainer>
+      <NavigationContainer
+        theme={scheme === 'dark' ? CustomDark : CustomDefault}>
         <Stack.Navigator
           screenOptions={{
             headerShown: false,

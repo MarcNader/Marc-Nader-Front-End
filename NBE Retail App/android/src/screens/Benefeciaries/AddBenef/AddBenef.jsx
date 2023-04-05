@@ -13,9 +13,12 @@ import {storeBenefData} from '../../../Util/http';
 import {Formik} from 'formik';
 import {useSelector} from 'react-redux';
 import * as Yup from 'yup';
+import {useTheme} from '@react-navigation/native';
+
 const AddBenef = ({navigation}) => {
   const {t, i18n} = useTranslation();
   const userId = useSelector(state => state.Credentials.UserId);
+  const {colors} = useTheme();
 
   const AddUserSchema = Yup.object().shape({
     firstName: Yup.string()
@@ -59,7 +62,7 @@ const AddBenef = ({navigation}) => {
         values,
         setFieldTouched,
       }) => (
-        <View style={styles.container}>
+        <View style={[styles.container, {backgroundColor: colors.background}]}>
           <ScrollView>
             <View style={styles.FirstRow}>
               <View style={styles.FirstRowPart1}>
@@ -90,7 +93,7 @@ const AddBenef = ({navigation}) => {
               <TouchableOpacity style={styles.Name}>
                 <Text
                   style={{
-                    color: 'black',
+                    color: 'orange',
                     marginStart: 15,
                     marginTop: 15,
                     fontWeight: 'bold',
@@ -101,7 +104,7 @@ const AddBenef = ({navigation}) => {
                   value={values.firstName}
                   onChangeText={handleChange('firstName')}
                   onBlur={() => setFieldTouched('firstName')}
-                  style={{color: 'black', marginStart: 15, marginTop: 10}}
+                  style={{marginStart: 15, marginTop: 10}}
                 />
                 {touched.firstName && errors.firstName && (
                   <Text style={styles.ErrorMsg}>{errors.firstName}</Text>
@@ -113,7 +116,7 @@ const AddBenef = ({navigation}) => {
                 onFocus={styles.ErrorMsg}>
                 <Text
                   style={{
-                    color: 'black',
+                    color: 'orange',
                     marginStart: 15,
                     marginTop: 15,
                     fontWeight: 'bold',
@@ -125,7 +128,6 @@ const AddBenef = ({navigation}) => {
                   onChangeText={handleChange('lastName')}
                   onBlur={() => setFieldTouched('lastName')}
                   style={{
-                    color: 'black',
                     marginStart: 15,
                     marginTop: 10,
                   }}></TextInput>
@@ -138,7 +140,7 @@ const AddBenef = ({navigation}) => {
             <TouchableOpacity style={styles.OtherData}>
               <Text
                 style={{
-                  color: 'black',
+                  color: 'orange',
                   marginStart: 15,
                   marginTop: 15,
                   fontWeight: 'bold',
@@ -150,10 +152,10 @@ const AddBenef = ({navigation}) => {
                 onChangeText={handleChange('bankBranch')}
                 onBlur={() => setFieldTouched('bankBranch')}
                 style={{
-                  color: 'black',
                   marginStart: 15,
                   marginTop: 10,
-                }}></TextInput>
+                }}
+              />
               {touched.bankBranch && errors.bankBranch && (
                 <Text style={styles.ErrorMsg}>{errors.bankBranch}</Text>
               )}
@@ -161,7 +163,7 @@ const AddBenef = ({navigation}) => {
             <TouchableOpacity style={styles.OtherData}>
               <Text
                 style={{
-                  color: 'black',
+                  color: 'orange',
                   marginStart: 15,
                   marginTop: 15,
                   fontWeight: 'bold',
@@ -169,7 +171,7 @@ const AddBenef = ({navigation}) => {
                 {t('Account Number')}
               </Text>
               <TextInput
-                style={{color: 'black', marginStart: 15, marginTop: 10}}
+                style={{marginStart: 15, marginTop: 10}}
                 value={values.accountNumber}
                 onChangeText={handleChange('accountNumber')}
                 onBlur={() => setFieldTouched('accountNumber')}
@@ -181,7 +183,7 @@ const AddBenef = ({navigation}) => {
             <TouchableOpacity style={styles.OtherData}>
               <Text
                 style={{
-                  color: 'black',
+                  color: 'orange',
                   marginStart: 15,
                   marginTop: 15,
                   fontWeight: 'bold',
@@ -193,7 +195,6 @@ const AddBenef = ({navigation}) => {
                 onChangeText={handleChange('phoneNumber')}
                 onBlur={() => setFieldTouched('phoneNumber')}
                 style={{
-                  color: 'black',
                   marginStart: 15,
                   marginTop: 10,
                 }}
@@ -206,7 +207,7 @@ const AddBenef = ({navigation}) => {
             <TouchableOpacity style={styles.OtherData}>
               <Text
                 style={{
-                  color: 'black',
+                  color: 'orange',
                   marginStart: 15,
                   marginTop: 15,
                   fontWeight: 'bold',
@@ -214,7 +215,7 @@ const AddBenef = ({navigation}) => {
                 {t('Email')}
               </Text>
               <TextInput
-                style={{color: 'black', marginStart: 15, marginTop: 10}}
+                style={{marginStart: 15, marginTop: 10}}
                 value={values.email}
                 onChangeText={handleChange('email')}
                 onBlur={() => setFieldTouched('email')}

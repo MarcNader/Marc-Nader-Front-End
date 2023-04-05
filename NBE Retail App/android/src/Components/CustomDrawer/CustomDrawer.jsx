@@ -1,5 +1,6 @@
 import {
   DrawerContentScrollView,
+  DrawerItem,
   DrawerItemList,
 } from '@react-navigation/drawer';
 import {View, Text, TouchableOpacity, Image} from 'react-native';
@@ -7,11 +8,22 @@ import LangButton from '../LangButton/LangButton';
 import styles from './CustomDrawer.styles';
 import LogOut from '../../assets/images/LogOut.png';
 import PersonDetails from '../PersonDetails/PersonDetails';
-import TabNavigator from '../../navigation/TabNavigator';
+import {firebase} from '@react-native-firebase/auth';
 const CustomDrawer = props => {
   const User = {
     firstName: 'Marc',
     phoneNumber: '01223431361',
+  };
+
+  const SignOut = async () => {
+    try {
+      await firebase.auth().signOut();
+    } catch (error) {
+      alert(error.message);
+      return;
+    }
+    console.log('USER IS SIGNED OUT');
+    props.navigation.navigate('Login');
   };
   return (
     <DrawerContentScrollView
@@ -25,23 +37,30 @@ const CustomDrawer = props => {
         <LangButton />
       </View>
 
-      <View
-        style={{
-          justifyContent: 'space-between',
-          flex: 1,
-          flexDirection: 'column',
-        }}>
+      <View style={styles.ItemsContainer}>
         <View style={styles.ItemsList}>
           <DrawerItemList {...props} />
-          {/* <DrawerItemList /> */}
         </View>
 
         <View style={styles.Footer}>
-          <TouchableOpacity style={styles.LogOutContainer}>
-            <Image source={LogOut} />
-            <Text style={styles.LogOutText}>Log Out</Text>
-          </TouchableOpacity>
-          <PersonDetails item={User} />
+          <DrawerItem
+            label={'Log Out'}
+            onPress={() => SignOut()}
+            labelStyle={styles.LogOutText}
+            icon={() => {
+              return <Image source={LogOut} />;
+            }}
+            activeTintColor={'orange'}
+            activeBackgroundColor={'#007236'}
+          />
+
+          <PersonDetails
+            item={User}
+            CustomContainer={{
+              marginHorizontal: 15,
+              borderRadius: 29,
+            }}
+          />
         </View>
       </View>
     </DrawerContentScrollView>

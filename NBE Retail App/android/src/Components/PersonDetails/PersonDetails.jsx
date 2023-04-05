@@ -1,9 +1,17 @@
 import {Text, TouchableOpacity, View, Image} from 'react-native';
 import styles from './PersonDetails.style';
+import {useTheme} from '@react-navigation/native';
+
 const PersonDetails = ({item, navigation, CustomContainer}) => {
+  const {colors} = useTheme();
+
   return (
     <TouchableOpacity
-      style={[styles.BenefDetailsContainer, CustomContainer]}
+      style={[
+        styles.BenefDetailsContainer,
+        CustomContainer,
+        {backgroundColor: colors.primary},
+      ]}
       onPress={() => navigation.navigate('TransactionHistory', {item})}>
       <View>
         <TouchableOpacity style={styles.IconContainer}>

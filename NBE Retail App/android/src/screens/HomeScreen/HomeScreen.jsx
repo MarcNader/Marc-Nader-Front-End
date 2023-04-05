@@ -35,6 +35,7 @@ const HomeScreen = ({navigation}) => {
   const [password, setPassword] = useState('');
   const [toggleCheckBox, setToggleCheckBox] = useState(false);
   const dispatch = useDispatch();
+
   const loginUser = async (Username, Password) => {
     let user = '';
     try {

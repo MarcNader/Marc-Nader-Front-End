@@ -51,5 +51,6 @@ protected void onCreate(Bundle savedInstanceState) {
       // More on this on https://reactjs.org/blog/2022/03/29/react-v18.html
       return BuildConfig.IS_NEW_ARCHITECTURE_ENABLED;
     }
+
   }
 }

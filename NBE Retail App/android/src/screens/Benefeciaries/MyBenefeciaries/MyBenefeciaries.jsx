@@ -15,14 +15,17 @@ import NoBenef from '../../../Components/NoBenef/NoBenef';
 import PersonDetails from '../../../Components/PersonDetails/PersonDetails';
 import {ActivityIndicator} from 'react-native';
 import {useSelector} from 'react-redux';
+import {useTheme} from '@react-navigation/native';
+
 const MyBenefeciaries = ({navigation}) => {
   const {t, i18n} = useTranslation();
   const [sort, setSort] = useState(true);
 
   const Benefeciaries = useSelector(state => state.UsersData.Users);
+  const {colors} = useTheme();
 
   return (
-    <View style={styles.container}>
+    <View style={[styles.container, {backgroundColor: colors.background}]}>
       <ScrollView contentContainerStyle={{flex: 1}}>
         <Header navigation={navigation} />
 

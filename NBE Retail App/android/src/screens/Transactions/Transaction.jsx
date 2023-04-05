@@ -10,8 +10,12 @@ import DropdownComponent from '../../Components/DropDown/dropdown';
 import styles from './Transaction.styles';
 import {useTranslation} from 'react-i18next';
 import CustomButton from '../../Components/CustomButton/CustomButton';
+import {useTheme} from '@react-navigation/native';
+
 const Transaction = ({navigation}) => {
   const {t, i18n} = useTranslation();
+  const Transfer = () => navigation.navigate('OTP');
+  const {colors} = useTheme();
 
   const betweenAccounts = [
     {label: t('Between your accounts'), value: 'CIB credit'},
@@ -49,10 +53,12 @@ const Transaction = ({navigation}) => {
 
   return (
     <ScrollView
-      contentContainerStyle={styles.container}
+      contentContainerStyle={[
+        styles.ScrollViewContainer,
+        {backgroundColor: colors.background},
+      ]}
       automaticallyAdjustKeyboardInsets={true}>
-      {/* <KeyboardAvoidingView style={styles.container}> */}
-      <View style={styles.container}>
+      <View style={[styles.container, {backgroundColor: colors.background}]}>
         <View style={styles.wrapper}>
           <View style={styles.FirstRow}>
             <TouchableOpacity
@@ -66,39 +72,30 @@ const Transaction = ({navigation}) => {
             />
           </View>
 
+          <Text style={{fontSize: 20, fontWeight: '700', marginTop: 20}}>
+            {t('Transfer')}
+          </Text>
+
           {Data.map(data => {
             return <DropdownComponent data={data.type} title={data.title} />;
           })}
 
-          <TouchableOpacity style={styles.OtherData} onPress={() => {}}>
-            <Text
+          <TouchableOpacity style={styles.OtherData}>
+            <Text style={styles.Title}>{t('Amount To Transfer')}</Text>
+            <TextInput
               style={{
-                color: 'black',
-                paddingTop: 17,
-                paddingBottom: 10,
+                color: 'orange',
                 marginStart: 20,
-              }}>
-              {t('Amount To Transfer')}
-            </Text>
-            <TextInput style={{color: 'black', marginStart: 20, marginTop: 10}}>
-              $
-            </TextInput>
+                marginTop: 10,
+                fontSize: 14,
+              }}
+              placeholder="Enter desired amount"
+            />
           </TouchableOpacity>
         </View>
 
-        {/* <TouchableOpacity
-          style={styles.CustomSubmit}
-          onPress={() => navigation.navigate('OTP')}>
-          <Text style={{textAlign: 'center', color: 'white', fontSize: 16}}>
-            {t('Transfer')}
-          </Text>
-        </TouchableOpacity> */}
-        <CustomButton
-          text={t('Transfer')}
-          onPress={navigation.navigate('OTP')}
-        />
+        <CustomButton text={t('Transfer')} onPress={Transfer} />
       </View>
-      {/* </KeyboardAvoidingView> */}
     </ScrollView>
   );
 };
