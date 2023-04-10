@@ -2,6 +2,7 @@ import axios from 'axios';
 
 const BACKEND_URL =
   'https://bankahlytask-default-rtdb.europe-west1.firebasedatabase.app';
+
 // export async function storeUserData(data){
 //   const respone = axios.post(BACKEND_URL + '/Users.json', data);
 
@@ -23,7 +24,7 @@ export async function storeBenefData(data, userId) {
 
 export async function fetchBenefData(userId) {
   const response = await axios.get(BACKEND_URL + '/Benefeciaries.json');
-
+  console.log(response.data);
   const data = [];
 
   for (const key in response.data) {

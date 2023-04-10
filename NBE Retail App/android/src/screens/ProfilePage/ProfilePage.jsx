@@ -37,11 +37,15 @@ const ProfilePage = ({navigation}) => {
   const {colors} = useTheme();
 
   const getUsers = async refresh => {
-    const users = await fetchBenefData(userId);
+    try {
+      const users = await fetchBenefData(userId);
 
-    setFetchedData(users);
+      setFetchedData(users);
 
-    dispatch(setUsers(users));
+      dispatch(setUsers(users));
+    } catch (error) {
+      console.log('We are in getusers and error is', error);
+    }
 
     if (refresh) {
       setRefreshing(false);
@@ -106,7 +110,7 @@ const ProfilePage = ({navigation}) => {
 
   ItemSeparator = () => {
     return (
-      <View style={{backgroundColor: 'white', height: 1, marginBottom: 5}} />
+      <View style={{backgroundColor: 'black', height: 1, marginBottom: 5}} />
     );
   };
 
@@ -124,18 +128,14 @@ const ProfilePage = ({navigation}) => {
           </TouchableOpacity>
 
           <View>
-            <Text style={{color: 'white', fontSize: 20, marginStart: 10}}>
-              {item.name}
-            </Text>
+            <Text style={{fontSize: 20, marginStart: 10}}>{item.name}</Text>
             <Text style={{color: 'gray', marginStart: 10, marginTop: 5}}>
               {item.time}
             </Text>
           </View>
         </View>
 
-        <Text style={{color: 'white', fontSize: 18, fontWeight: 'bold'}}>
-          {item.price}
-        </Text>
+        <Text style={{fontSize: 18, fontWeight: 'bold'}}>{item.price}</Text>
       </View>
     );
   };
@@ -177,14 +177,14 @@ const ProfilePage = ({navigation}) => {
           </View>
         </ImageBackground>
 
-        <TouchableOpacity
+        {/* <TouchableOpacity
           onPress={() => {
             setVisible(true);
           }}>
-          <Text style={{color: colors.text}}>Press here to show modal</Text>
-          <Text style={{color: colors.text}}>Press here to show modal</Text>
-          <Text style={{color: colors.text}}>Press here to show modal</Text>
-        </TouchableOpacity>
+          <Text style={{color: colors.text, marginTop: 10}}>
+            Press here to show modal
+          </Text>
+        </TouchableOpacity> */}
 
         {Visible && <ModalPop isVisible={value => setVisible(value)} />}
 
@@ -237,7 +237,6 @@ const ProfilePage = ({navigation}) => {
             }}>
             <Text
               style={{
-                color: 'white',
                 fontSize: 20,
                 fontWeight: 'bold',
               }}>
@@ -256,7 +255,6 @@ const ProfilePage = ({navigation}) => {
           {fetchedData.length > 0 ? (
             <FlatList
               data={fetchedData}
-              // renderItem={Benefeciary}
               renderItem={({item}) => (
                 <Benefeciary item={item} colors={colors} />
               )}
@@ -280,7 +278,7 @@ const ProfilePage = ({navigation}) => {
               alignItems: 'center',
               marginBottom: 5,
             }}>
-            <Text style={{color: 'white', fontSize: 20, fontWeight: 'bold'}}>
+            <Text style={{fontSize: 20, fontWeight: 'bold'}}>
               {t('History')}
             </Text>
             <Text style={{color: 'gray'}}>{t('View All')}</Text>
