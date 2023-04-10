@@ -48,10 +48,6 @@ export default StyleSheet.create({
   },
   logos: {
     marginTop: 30,
-    width: 55,
-    height: 55,
-    borderRadius: 13,
-    backgroundColor: '#1A413C',
     alignItems: 'center',
     justifyContent: 'center',
   },

@@ -30,11 +30,11 @@ const App = () => {
   const CustomDark = {
     dark: true,
     colors: {
-      primary: ' rgba(255, 255, 255, 0.05)',
+      primary: 'rgba(255, 255, 255, 0.05)',
       // secondary: ' rgba(255, 255, 255, 0.05)',
       background: 'rgba(31, 41, 51, 1)',
       card: 'rgb(255, 255, 255)',
-      text: 'rgb(28, 28, 30)',
+      text: 'white',
       border: 'rgb(199, 199, 204)',
       notification: 'rgb(255, 69, 58)',
     },

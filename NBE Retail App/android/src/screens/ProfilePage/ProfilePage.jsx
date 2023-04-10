@@ -189,42 +189,37 @@ const ProfilePage = ({navigation}) => {
         {Visible && <ModalPop isVisible={value => setVisible(value)} />}
 
         <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
-          <View style={styles.logosComponent}>
-            <TouchableOpacity style={styles.logos}>
-              <Image
-                style={{width: 30, backgroundColor: '#1A413C'}}
-                source={require('../../assets/images/money.png')}
-              />
-            </TouchableOpacity>
-            <Text style={{color: 'white'}}>{t('Accounts')}</Text>
-          </View>
-          <View style={styles.logosComponent}>
-            <TouchableOpacity style={styles.logos}>
-              <Image
-                style={{width: 30, backgroundColor: '#1A413C'}}
-                source={require('../../assets/images/money.png')}
-              />
-            </TouchableOpacity>
-            <Text style={{color: 'white'}}>{t('Accounts')}</Text>
-          </View>
-          <View style={styles.logosComponent}>
-            <TouchableOpacity style={styles.logos}>
-              <Image
-                style={{width: 30, backgroundColor: '#1A413C'}}
-                source={require('../../assets/images/money.png')}
-              />
-            </TouchableOpacity>
-            <Text style={{color: 'white'}}>{t('Accounts')}</Text>
-          </View>
-          <View style={styles.logosComponent}>
-            <TouchableOpacity style={styles.logos}>
-              <Image
-                style={{width: 30, backgroundColor: '#1A413C'}}
-                source={require('../../assets/images/money.png')}
-              />
-            </TouchableOpacity>
-            <Text style={{color: 'white'}}>{t('Accounts')}</Text>
-          </View>
+          <TouchableOpacity style={styles.logos}>
+            <Image
+              source={require('../../assets/Icons/AccountsCard.png')}
+              style={{borderRadius: 10, marginBottom: 5}}
+            />
+            <Text style={{color: colors.text}}>{t('Accounts')}</Text>
+          </TouchableOpacity>
+
+          <TouchableOpacity style={styles.logos}>
+            <Image
+              source={require('../../assets/Icons/CardsCard.png')}
+              style={{borderRadius: 10, marginBottom: 5}}
+            />
+            <Text style={{color: colors.text}}>{t('Cards')}</Text>
+          </TouchableOpacity>
+
+          <TouchableOpacity style={styles.logos}>
+            <Image
+              source={require('../../assets/Icons/UtilitiesCard.png')}
+              style={{borderRadius: 10, marginBottom: 5}}
+            />
+            <Text style={{color: colors.text}}>{t('Utilities')}</Text>
+          </TouchableOpacity>
+
+          <TouchableOpacity style={styles.logos}>
+            <Image
+              source={require('../../assets/Icons/HistoryCard.png')}
+              style={{borderRadius: 10, marginBottom: 5}}
+            />
+            <Text style={{color: colors.text}}>{t('History')}</Text>
+          </TouchableOpacity>
         </View>
 
         <View style={styles.FourthRow}>
