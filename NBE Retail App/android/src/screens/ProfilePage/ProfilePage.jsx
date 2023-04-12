@@ -30,7 +30,6 @@ const ProfilePage = ({navigation}) => {
   const [Visible, setVisible] = useState(false);
   const [refreshing, setRefreshing] = useState(false);
   const [fetchedData, setFetchedData] = useState([]);
-  const hamada = 'hamada';
   const userId = useSelector(state => state.Credentials.UserId);
   const dispatch = useDispatch();
 
@@ -144,6 +143,7 @@ const ProfilePage = ({navigation}) => {
     <View style={[styles.container, {backgroundColor: colors.background}]}>
       <ScrollView
         contentContainerStyle={{flex: 1}}
+        // stickyHeaderIndices={[0]}
         refreshControl={
           <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />
         }>

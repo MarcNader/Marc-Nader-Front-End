@@ -31,8 +31,8 @@ import atsign from '../../assets/images/atsign.png';
 import Lock from '../../assets/images/Lock.png';
 const HomeScreen = ({navigation}) => {
   const {t, i18n} = useTranslation();
-  const [username, setUserName] = useState('');
-  const [password, setPassword] = useState('');
+  const [username, setUserName] = useState('marc@gmail.com');
+  const [password, setPassword] = useState('123456');
   const [toggleCheckBox, setToggleCheckBox] = useState(false);
   const dispatch = useDispatch();
 

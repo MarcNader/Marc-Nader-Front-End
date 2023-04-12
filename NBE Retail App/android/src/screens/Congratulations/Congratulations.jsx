@@ -48,7 +48,7 @@ const Congratulations = ({navigation}) => {
         <CustomButton
           text={'Finish'}
           onPress={Finish}
-          ContainerStyle={{backgroundColor: 'orange'}}
+          CustomStyleContainer={{backgroundColor: 'orange'}}
         />
       </View>
     </ImageBackground>
