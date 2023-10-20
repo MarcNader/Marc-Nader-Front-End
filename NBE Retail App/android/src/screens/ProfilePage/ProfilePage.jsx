@@ -251,7 +251,7 @@ const ProfilePage = ({navigation}) => {
             <FlatList
               data={fetchedData}
               renderItem={({item}) => (
-                <Benefeciary item={item} colors={colors} />
+                <Benefeciary item={item} colors={colors} navigation={navigation} />
               )}
               horizontal={true}
               extraData={colors}

@@ -53,7 +53,7 @@ const HomeScreen = ({navigation}) => {
   };
 
   return (
-    <ScrollView>
+         <ScrollView contentContainerStyle={{flex:1}}>
       <ImageBackground
         source={require('../../assets/images/Home-Background.png')}
         resizeMode="stretch"
@@ -166,6 +166,7 @@ const HomeScreen = ({navigation}) => {
         </View>
       </ImageBackground>
     </ScrollView>
+   
   );
 };
 

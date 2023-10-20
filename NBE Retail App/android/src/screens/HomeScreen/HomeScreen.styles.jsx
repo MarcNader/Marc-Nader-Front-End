@@ -25,24 +25,24 @@ export default StyleSheet.create({
          fontWeight:"bold",
      },
  
-     CustomUsername: {
-         borderWidth:2,
-         padding:6,
-         borderColor:"gray",
-         borderRadius:10,
-         marginTop:25,
-         backgroundColor:"#00000030",
-         flexDirection:"row",
-     },
-     CustomPassword: {
-         borderWidth:2,
-         padding:6,
-         borderColor:"green",
-         borderRadius:10,
-         marginTop:25,
-         backgroundColor:"white",
-         flexDirection:"row",
-     },
+    //  CustomUsername: {
+    //      borderWidth:2,
+    //      padding:6,
+    //      borderColor:"gray",
+    //      borderRadius:10,
+    //      marginTop:25,
+    //      backgroundColor:"#00000030",
+    //      flexDirection:"row",
+    //  },
+    //  CustomPassword: {
+    //      borderWidth:2,
+    //      padding:6,
+    //      borderColor:"green",
+    //      borderRadius:10,
+    //      marginTop:25,
+    //      backgroundColor:"white",
+    //      flexDirection:"row",
+    //  },
      CheckBoxSection:{
          flexDirection:'row', 
          alignItems:'center', 
@@ -58,7 +58,7 @@ export default StyleSheet.create({
      },
  
      Footer:{
-         marginTop:20,
+         marginTop:120,
          backgroundColor:"#00000050",  //each color has 6 digits, then you put the percentage of intensity of the color
          padding:16,
          justifyContent:"center",
